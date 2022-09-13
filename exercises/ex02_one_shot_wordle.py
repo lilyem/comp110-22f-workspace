@@ -22,12 +22,12 @@ while index_of_guess < len(secret_word):
     if guess[index_of_guess] == secret_word[index_of_guess]:
         resulting_emojis = resulting_emojis + GREEN_BOX
     else:
-        while match_in_word != True and alternate_index < len(secret_word):
+        while match_in_word is not True and alternate_index < len(secret_word):
             if secret_word[alternate_index] == guess[index_of_guess]:
                 match_in_word = True
             else: 
                 alternate_index = alternate_index + 1
-        if match_in_word == True:
+        if match_in_word is True:
             resulting_emojis = resulting_emojis + YELLOW_BOX
         else:
             resulting_emojis = resulting_emojis + WHITE_BOX
@@ -37,10 +37,8 @@ while index_of_guess < len(secret_word):
     alternate_index = 0
 print(resulting_emojis)
 
-while len(guess) == len(secret_word):
-    if guess == secret_word:
-       print("Woo! You got it!")
-       quit()
-    else:
-        print("Not quite. Play again soon!")
-        quit()
+
+if guess == secret_word:
+    print("Woo! You got it!")
+else:
+    print("Not quite. Play again soon!")
