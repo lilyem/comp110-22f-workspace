@@ -6,9 +6,10 @@ WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
-def contains_char (guess: str, character: str) -> bool:
+
+def contains_char(guess: str, character: str) -> bool:
     """Checks if the guess contains characters in secret."""
-    assert len(character) ==1
+    assert len(character) == 1
     index_of_guess: int = 0
     while index_of_guess < len(guess):
         if guess[index_of_guess] == character:
@@ -18,7 +19,7 @@ def contains_char (guess: str, character: str) -> bool:
     return False
 
 
-def emojified (guess: str, secret: str) -> str:
+def emojified(guess: str, secret: str) -> str:
     """Returns str for emoji color."""
     assert len(guess) == len(secret)
     index_of_guess: int = 0
@@ -26,9 +27,9 @@ def emojified (guess: str, secret: str) -> str:
     while index_of_guess < len(guess):
         if guess[index_of_guess] == secret[index_of_guess]:
             resulting_emojis = resulting_emojis + GREEN_BOX
-        elif contains_char(secret, guess[index_of_guess]) == True:
+        elif contains_char(secret, guess[index_of_guess]) is True:
             resulting_emojis = resulting_emojis + YELLOW_BOX
-        elif contains_char(secret, guess[index_of_guess]) == False:
+        elif contains_char(secret, guess[index_of_guess]) is False:
             resulting_emojis = resulting_emojis + WHITE_BOX
         index_of_guess = index_of_guess + 1
     return resulting_emojis
@@ -38,12 +39,13 @@ def emojified (guess: str, secret: str) -> str:
 # be concatenated.
 
 
-def input_guess (number: int) -> str:
+def input_guess(number: int) -> str:
     """Ensures guess is of expected length."""
     guess_input: str = input(f"Enter a {number} character word: ")
     while number != len(guess_input):
         guess_input = input(f"That wasn't {number} chars! Try again: ")
     return guess_input
+
 
 def main() -> None:
     """The entrypoint of the program and main game loop."""
@@ -51,7 +53,7 @@ def main() -> None:
     game_turn: int = 1
     won: bool = False
     current_guess: str = ""
-    while game_turn <= 6 and won == False:
+    while game_turn <= 6 and won is False:
         print(f"=== Turn {game_turn}/6 ===")
         current_guess = input_guess(len(secret))
         print(emojified(current_guess, secret))
