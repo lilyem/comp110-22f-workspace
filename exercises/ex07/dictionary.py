@@ -7,13 +7,13 @@ def invert(original_dict: dict[str, str]) -> dict[str, str]:
     inverted_dict: dict[str, str] = {}
     for key in original_dict:
         if original_dict[key] in inverted_dict:
-            raise ValueError("KeyError: duplicate keys.")
+            raise KeyError("KeyError: duplicate keys.")
         inverted_dict[original_dict[key]] = key
     return inverted_dict
 
 
 def favorite_color(a: dict[str, str]) -> str:
-    """Returns most common favorite color"""
+    """Returns most common favorite color."""
     most_popular_color: str = ""
     number_of_color: int = 0
     color_count: dict[str, int] = {}
@@ -28,9 +28,6 @@ def favorite_color(a: dict[str, str]) -> str:
             most_popular_color = color
     return most_popular_color
 
-
-
-    
 
 def count(a: list[str]) -> dict[str, int]:
     """Count the number of times something appears in a list."""
