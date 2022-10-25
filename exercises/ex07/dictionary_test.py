@@ -50,10 +50,10 @@ def test_count_empty() -> None:
 def test_count_one() -> None:
     """First use case test for count function."""
     xs: list[str] = ["a", "a", "b", "c", "a", "b"]
-    assert count(xs) == {"a":3, "b":2, "c":1}
+    assert count(xs) == {"a": 3, "b": 2, "c": 1}
 
 
 def test_count_two() -> None:
     """Second use case test for count function."""
     xs: list[str] = ["lily", "kendall", "lily"]
-    assert count(xs) == {"lily":2, "kendall":1}
+    assert count(xs) == {"lily": 2, "kendall": 1}
