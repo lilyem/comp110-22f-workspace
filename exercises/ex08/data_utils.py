@@ -5,7 +5,6 @@ __author__ = "730573460"
 # Define your functions below
 
 from csv import DictReader
-from unittest import result
 
 
 def read_csv_rows(filename: str) -> list[dict[str, str]]:
@@ -41,6 +40,8 @@ def head(a: dict[str, list[str]], N: int) -> dict[str, list[str]]:
     """Produce a new column-based table with a specific subset of the original columns."""
     result: dict[str, list[str]] = {}
     for column in a:
+        if N >= len(a[column]):
+            return a
         n_values: list[str] = []
         i: int = 0
         while i < N:
