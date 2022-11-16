@@ -16,3 +16,10 @@ CELL_SPEED: float = 5.0
 
 VULNERABLE: int = 0
 INFECTED: int = 1
+
+INFECTED_CELL_COUNT: int = 5
+
+IMMUNE: int = -1
+RECOVERY_PERIOD: int = 90
+
+IMMUNE_START_COUNT: int = 3
